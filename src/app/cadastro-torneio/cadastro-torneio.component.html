@@ -1,0 +1,26 @@
+<div class="container" style="padding-top: 27px;">
+    <form #f="ngForm" (ngSubmit)="salvar()">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="ui-g-12">
+                    <h1>Criar Torneio</h1>
+                </div>
+
+                <div class="ui-g-12 ui-fluid">
+                    <label for="">Nome do Torneio</label>
+                    <input type="text" name="nome" pInputText [(ngModel)]="nome">
+                </div>
+
+                <div class="ui-g-12 ui-fluid">
+                    <label for="">URL do Torneio</label>
+                    <input type="text" name="url" pInputText [(ngModel)]="url">
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-g-12">
+            <button pButton label="Novo" type="submit" class="ui-button-primary" icon="fa fa-plus"></button>
+            <button pButton label="Salvar" type="submit" class="ui-button-success" icon="fa fa-save"></button>
+        </div>
+    </form>
+</div>

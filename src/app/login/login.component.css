@@ -1,0 +1,88 @@
+.wrapper {
+    height: 100%;
+    min-height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+
+.wrapper .login{
+    background-color:#ffffff;
+    width: 275px;
+    height: 375px;
+    box-shadow: 0.8px 0.8px 0.8px 0.8px #b8b8b8;
+}
+.login-header {
+    height: 150px;
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.wrapper .login .login-header .logo {
+    height: 85px;
+    width: 20px;
+    padding-left: 37.5px;
+    padding-right: 37.5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    box-shadow: 0.8px 0.8px 0.8px 0.8px #b8b8b8;
+    border-radius: 150px;
+}
+.wrapper .login .login-form{
+    padding-left: 37.5px;
+    padding-right: 37.5px;
+    height: 225px;
+}
+.wrapper .login .login-form .input{
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    height: 50px;
+}
+.wrapper .login .login-form .input > input{
+    width: 200px;
+    height: 23px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #98989899;
+    border-radius: 2px;
+    background-color: #fafafa;
+    margin-top: 10px;
+}
+.wrapper .login .login-form .text-bottom{
+    text-align: center;
+    position: relative;
+    margin-top: -12px;
+}
+.wrapper .login .login-form .text-bottom > a{
+    color: #616161;
+    font-size: 12px;    
+}
+.wrapper .login .login-form .input > button{
+    background-color: #616161;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0.8px 0.8px 0.8px 0.8px #b8b8b8;
+    width:100px;
+    height: 30px;
+    border-radius: 2px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+.wrapper .login .login-form .input > button:hover{
+    background-color: chocolate;
+}
