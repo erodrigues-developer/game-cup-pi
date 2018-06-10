@@ -1,14 +1,16 @@
 <div class="container" style="padding-top: 27px;">
-    <form #f="ngForm" (ngSubmit)="salvar()">
+    <form #f="ngForm" (ngSubmit)="salvar(f, d)">
         <div class="ui-g">
             <div class="ui-g-12">
                 <div class="ui-g-12">
                     <h1>Criar Torneio</h1>
                 </div>
 
+                <input type="hidden" name="id" [(ngModel)]="id">
+
                 <div class="ui-g-12 ui-fluid">
                     <label for="">Nome do Torneio</label>
-                    <input type="text" name="nome" pInputText [(ngModel)]="nome">
+                    <input type="text" name="nome" pInputText [(ngModel)]="nome" #v (keyup)="criarUrl(v.value)">
                 </div>
 
                 <div class="ui-g-12 ui-fluid">
@@ -22,5 +24,19 @@
             <button pButton label="Novo" type="submit" class="ui-button-primary" icon="fa fa-plus"></button>
             <button pButton label="Salvar" type="submit" class="ui-button-success" icon="fa fa-save"></button>
         </div>
+
     </form>
+    <p-dialog [(visible)]="display" [responsive]="true" [modal]="true">
+        <p-header>
+            Game Cup PI
+        </p-header>
+            <p>Torneio criado com sucesso!</p>
+            <p>Acessar no Challonge.com</p>
+            <a href="{{link}}" target="_blank">
+                <span><i class="fa fa-link"></i></span>
+            </a>
+        <p-footer>
+            <button pButton label="Ok"class="ui-button-success" icon="fa fa-check" (click)="ok()"></button>
+        </p-footer>
+    </p-dialog>
 </div>

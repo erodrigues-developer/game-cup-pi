@@ -15,6 +15,8 @@ import {TabViewModule} from 'primeng/tabview';
 import {PanelModule} from 'primeng/panel';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
+
 import { TorneioService } from './torneio.service';
 
 @NgModule({
@@ -34,7 +36,8 @@ import { TorneioService } from './torneio.service';
     CardModule,
     TabViewModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule
   ],
   providers: [TorneioService],
   bootstrap: [AppComponent]
