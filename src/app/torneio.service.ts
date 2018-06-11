@@ -31,7 +31,7 @@ export class TorneioService {
                                 '?api_key=HFQp64rnt3zSP216dLZ1A3KmIXjkyCHf66W4bwAu'+
                                 '&tournament[name]='+nome+
                                 '&tournament[url]='+url;
-
+    
     return this.httpClient.post(this.url_api, {})
     .toPromise()
     .then(response => response )

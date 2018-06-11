@@ -19,6 +19,10 @@ import {DialogModule} from 'primeng/dialog';
 
 import { TorneioService } from './torneio.service';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +41,9 @@ import { TorneioService } from './torneio.service';
     TabViewModule,
     InputTextModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [TorneioService],
   bootstrap: [AppComponent]
