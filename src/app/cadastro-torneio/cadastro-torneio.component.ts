@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TorneioService } from '../torneio.service';
 import { NgForm } from '@angular/forms';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-cadastro-torneio',
@@ -14,12 +15,27 @@ export class CadastroTorneioComponent implements OnInit {
   url: String = '';
   display = false;
   link = "#";
+  key = "-LElURGy_KfKTQkjVbKo";
 
-  constructor(private torneio: TorneioService) { }
+  constructor(private torneio: TorneioService, private db: AngularFireDatabase) { }
 
   ngOnInit(){}
 
+  /**
+   * Método executado na sumissão do formulário
+   * Verifica se é edição ao adição de novos dados e persiste na base de dados e na api
+   * @param f 
+   * @author Erodrigues
+   * @since 11/06/2018
+   */
   salvar (f) {
+    
+          
+    // Reseta o formulário
+    f.reset();
+  }
+
+  private save (){
     // Chama o serviço torneio e insere no challonge através da api
     this.torneio.salvar(this.nome, this.url)
       .then(dados => {
@@ -29,14 +45,30 @@ export class CadastroTorneioComponent implements OnInit {
         this.url        = dados.tournament.url;
         this.link       = dados.tournament.full_challonge_url;
         this.display    = true;
-      });
-    // Reseta o formulário
-    f.reset();
-    // Cria o objeto para salvar no firebase
+        // Salva no firebase
+        const dadosFireBase = {
+          id: this.id,
+          nome: this.nome,
+          url: this.url,
+          link: this.link
+        };
+        console.log(dadosFireBase);
+        this.db.list("usuarios/" + this.key + "/torneios").push(dadosFireBase)
+          .then((t: any) => console.log(t.key)),
+            (e: any) => console.log(e.message);
+        
+    });
   }
 
   criarUrl(v: string){
-    this.url = v.split(" ").join("");
+    // Remove os espaços
+    v = v.split(" ").join("");
+
+    // Transforma em minúsculas
+    v = v.toLowerCase();
+
+    // Atribui a propriedade url
+    this.url = v;
   }
 
   ok(){
