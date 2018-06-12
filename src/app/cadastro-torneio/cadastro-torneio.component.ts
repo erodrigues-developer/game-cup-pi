@@ -11,11 +11,13 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class CadastroTorneioComponent implements OnInit {
   
   id: number;
+  key: String;
   nome: String = '';
   url: String = '';
   display = false;
   link = "#";
-  key = "-LElURGy_KfKTQkjVbKo";
+
+  keyusuario = "-LElURGy_KfKTQkjVbKo";
 
   constructor(private torneio: TorneioService, private db: AngularFireDatabase) { }
 
@@ -28,9 +30,8 @@ export class CadastroTorneioComponent implements OnInit {
    * @author Erodrigues
    * @since 11/06/2018
    */
-  salvar (f) {
-    
-          
+  salvar (f) {   
+    this.save();
     // Reseta o formulário
     f.reset();
   }
@@ -39,7 +40,6 @@ export class CadastroTorneioComponent implements OnInit {
     // Chama o serviço torneio e insere no challonge através da api
     this.torneio.salvar(this.nome, this.url)
       .then(dados => {
-        console.log(dados.tournament);
         this.id         = dados.tournament.id;
         this.nome       = dados.tournament.name;
         this.url        = dados.tournament.url;
@@ -53,8 +53,8 @@ export class CadastroTorneioComponent implements OnInit {
           link: this.link
         };
         console.log(dadosFireBase);
-        this.db.list("usuarios/" + this.key + "/torneios").push(dadosFireBase)
-          .then((t: any) => console.log(t.key)),
+        this.db.list("usuarios/" + this.keyusuario + "/torneios").push(dadosFireBase)
+          .then((t: any) => (console.log(t.key))),
             (e: any) => console.log(e.message);
         
     });

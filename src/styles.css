@@ -34,3 +34,6 @@ a {
     text-decoration: none;
     color: #337ab7;
 }
+.ui-widget-header .ui-button, .ui-widget-content .ui-button, .ui-widget.ui-button, .ui-button {
+    margin-right: 5px;
+}

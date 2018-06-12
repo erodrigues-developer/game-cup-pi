@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CadastroTorneioComponent } from './cadastro-torneio/cadastro-torneio.component';
@@ -26,7 +25,6 @@ import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     NavBarComponent,
     CadastroTorneioComponent
   ],
